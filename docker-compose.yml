@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+
+  wordpress:
+    build: .
+    ports:
+      - 3000:80
+    env_file: .env
+    links:
+      - mysql
+    volumes:
+      - ./wordpress/wp-content/themes/garbage:/var/www/html/wp-content/themes/garbage
+      - ./wordpress/assets:/var/www/html/assets
+      - ./etc/php/conf.d/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+    container_name: garbage_wordpress
+
+  mysql:
+    image: mariadb
+    container_name: garbage_db
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./db-data/db_wordpress.sql:/docker-entrypoint-initdb.d/install_wordpress.sql
+    env_file: .env
+
+volumes:
+  db-data:
+    driver: local

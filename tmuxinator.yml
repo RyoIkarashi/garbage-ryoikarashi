@@ -1,0 +1,14 @@
+name: garbage
+root: .
+
+windows:
+  - 🐙 git:
+    - git fetch
+    - git fetch --tags
+    - git status -s
+
+  - 🐳 docker-log:
+    - docker-compose logs -f --tail=50
+
+  - ⚛ webpack:
+    - npm start

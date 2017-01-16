@@ -1,0 +1,12 @@
+.env
+.DS_Store
+node_modules
+.sass-cache
+npm-debug.log
+wordpress/assets/bundle.js
+wordpress/assets/bundle.js.map
+wordpress/assets/main.css
+wordpress/assets/main.css.map
+wordpress/assets/iehack.js
+wordpress/assets/styles.css
+db-data
